@@ -10,11 +10,11 @@ apk add --no-cache --virtual=build-dependencies \
 	g++ \
 	gcc \
 	make \
+	ffmpeg \
 	python-dev && \
 pip install --no-cache-dir -U \
-	pycryptodomex && \
-wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl && \
-chmod a+rx /usr/local/bin/youtube-dl && \
+	pycryptodomex \
+	youtube-dl && \
 apk del --purge \
 	build-dependencies && \
 rm -rf \
