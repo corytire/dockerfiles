@@ -19,5 +19,4 @@ apk del --purge \
 	build-dependencies && \
 rm -rf \
 	/root/.cache
-COPY root/ /
 VOLUME /youtube
