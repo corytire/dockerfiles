@@ -1,4 +1,4 @@
-FROM lsiobase/alpine.python:3.7
+FROM lsiobase/xenial
 
 ARG BUILD_DATE
 ARG VERSION
@@ -6,18 +6,21 @@ LABEL build_version="Build-version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="corytire"
 
 RUN \
-apk add --no-cache --virtual=build-dependencies \
-	g++ \
-	gcc \
-	make \
+apt-get update && \
+apt-get install -y
 	ffmpeg \
 	atomicparsley \
-	python-dev && \
+	python-dev 
+	python-pip && \
+pip install --upgrade pip && \
+pip install --upgrade virtualenv && \
 pip install --no-cache-dir -U \
 	pycryptodomex \
 	youtube-dl && \
-apk del --purge \
-	build-dependencies && \
+apt-get clean && \
 rm -rf \
-	/root/.cache
+	/tmp/*
+	/var/lib/apt/lists/*
+	/var/tmp/*
+COPY root/ /
 VOLUME /youtube /config
