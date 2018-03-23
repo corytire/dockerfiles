@@ -19,8 +19,8 @@ pip install --no-cache-dir -U \
 	youtube-dl && \
 apt-get clean && \
 rm -rf \
-	/tmp/*
-	/var/lib/apt/lists/*
+	/tmp/* \
+	/var/lib/apt/lists/* \
 	/var/tmp/*
 COPY root/ /
 VOLUME /youtube /config
