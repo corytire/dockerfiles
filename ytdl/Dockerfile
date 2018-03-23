@@ -7,10 +7,10 @@ LABEL maintainer="corytire"
 
 RUN \
 apt-get update && \
-apt-get install -y
+apt-get install -y \
 	ffmpeg \
 	atomicparsley \
-	python-dev 
+	python-dev \
 	python-pip && \
 pip install --upgrade pip && \
 pip install --upgrade virtualenv && \
