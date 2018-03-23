@@ -11,6 +11,7 @@ apk add --no-cache --virtual=build-dependencies \
 	gcc \
 	make \
 	ffmpeg \
+	atomicparsley \
 	python-dev && \
 pip install --no-cache-dir -U \
 	pycryptodomex \
